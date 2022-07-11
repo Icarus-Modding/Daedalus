@@ -1,4 +1,4 @@
-﻿#include "GameInfo.h"
+#include "GameInfo.h"
 #include <iostream>
 #include "Utilities/Logger.h"
 #include <string>
@@ -54,6 +54,7 @@ void SetupProfile()
     gamename = gamename.substr(0, gamename.find_last_of("."));
     gamename = gamename.substr(gamename.find_last_of("/\\"));
     gamename = gamename.substr(1);
+
     //Output File Initialization
 
     ShowWindow(GetConsoleWindow(), SW_SHOW);
@@ -65,9 +66,27 @@ void SetupProfile()
     freopen("CONOUT$", "w", stderr);
 
     PrintLogo();
-
     Log::Info("UnrealModLoader Created by ~Russell.J Release V %s", MODLOADER_VERSION);
     Log::Info("Adapted by edmiester777 for use with Icarus");
+    
+
+    std::string currentPath = std::filesystem::current_path().string();
+    if (currentPath.find("Win32") == std::string::npos && !std::filesystem::exists("Icarus-Win64-Shipping.pdb"))
+    {
+        // PDB is not in a readable location for this executable. Making a copy
+        std::error_code e;
+        Log::Info("Executable directory does not contain PDB. Attempting to copy...");
+        std::filesystem::copy_file(
+            std::filesystem::current_path() / "Icarus" / "Binaries" / "Win64" / "Icarus-Win64-Shipping.pdb",
+            std::filesystem::current_path() / "Icarus-Win64-Shipping.pdb",
+            e
+        );
+
+        if (e)
+        {
+            Log::Warn("Failed to copy symbols to current directory. Mods may be unstable.");
+        }
+    }
 
     GameProfile::SelectedGameProfile.ProfileName = gamename;
     Log::Info("Profile Detected: %s", gamename.c_str());
