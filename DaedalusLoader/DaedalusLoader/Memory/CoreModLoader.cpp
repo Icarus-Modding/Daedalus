@@ -30,7 +30,6 @@ namespace CoreModLoader
 		char path_c[MAX_PATH];
 		GetModuleFileNameA(NULL, path_c, MAX_PATH);
 		fs::path path = fs::path(path_c).parent_path() / "mods";
-		Log::Warn(path.string());
 		if (!std::filesystem::exists(path))
 		{
 			return;
