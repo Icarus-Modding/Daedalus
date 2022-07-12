@@ -29,14 +29,11 @@ namespace CoreModLoader
 	{
 		char path_c[MAX_PATH];
 		GetModuleFileNameA(NULL, path_c, MAX_PATH);
-		std::string path = std::string(path_c);
-		path = path.substr(0, path.find_last_of("/\\"));
-		path = path.substr(0, path.find_last_of("/\\"));
-		path = path.substr(0, path.find_last_of("/\\"));
-		path = path + "\\Content\\CoreMods\\";
+		fs::path path = fs::path(path_c).parent_path() / "mods";
+		Log::Warn(path.string());
 		if (!std::filesystem::exists(path))
 		{
-			std::filesystem::create_directory(path);
+			return;
 		}
 		for (const auto& entry : fs::directory_iterator(path))
 		{
