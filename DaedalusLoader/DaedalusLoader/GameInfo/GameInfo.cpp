@@ -75,20 +75,25 @@ void SetupProfile()
     
 
     std::string currentPath = std::filesystem::current_path().string();
-    if (currentPath.find("Win32") == std::string::npos && !std::filesystem::exists("Icarus-Win64-Shipping.pdb"))
+    std::filesystem::path newPdbPath = std::filesystem::current_path() / "Icarus-Win64-Shipping.pdb";
+    std::filesystem::path pdbPath = std::filesystem::current_path() / "Icarus" / "Binaries" / "Win64" / "Icarus-Win64-Shipping.pdb";
+    if (currentPath.find("Win32"))
     {
-        // PDB is not in a readable location for this executable. Making a copy
-        std::error_code e;
-        Log::Info("Executable directory does not contain PDB. Attempting to copy...");
-        std::filesystem::copy_file(
-            std::filesystem::current_path() / "Icarus" / "Binaries" / "Win64" / "Icarus-Win64-Shipping.pdb",
-            std::filesystem::current_path() / "Icarus-Win64-Shipping.pdb",
-            e
-        );
-
-        if (e)
+        if (!std::filesystem::exists(newPdbPath) || std::filesystem::file_size(newPdbPath) != std::filesystem::file_size(pdbPath))
         {
-            Log::Warn("Failed to copy symbols to current directory. Mods may be unstable.");
+            // PDB is not in a readable location for this executable. Making a copy
+            std::error_code e;
+            Log::Info("Executable directory does not contain valid PDB. Attempting to copy...");
+            std::filesystem::copy_file(
+                pdbPath,
+                newPdbPath,
+                e
+            );
+
+            if (e)
+            {
+                Log::Warn("Failed to copy symbols to current directory. Mods may be unstable.");
+            }
         }
     }
 
