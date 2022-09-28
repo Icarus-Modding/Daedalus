@@ -61,9 +61,13 @@ void SetupProfile()
     FreeConsole();
     AllocConsole();
     SetConsoleOutputCP(65001);
+
+#pragma warning(push)
+#pragma warning(disable:6031)
     freopen("CONIN$", "r", stdin);
     freopen("CONOUT$", "w", stdout);
     freopen("CONOUT$", "w", stderr);
+#pragma warning(pop)
 
     PrintLogo();
     Log::Info("UnrealModLoader Created by ~Russell.J Release V %s", MODLOADER_VERSION);
