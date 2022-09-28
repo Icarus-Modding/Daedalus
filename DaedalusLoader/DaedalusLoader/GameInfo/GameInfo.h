@@ -36,7 +36,7 @@ struct Offsets {
 	} Property;
 };
 
-class GameProfile
+class LOADER_API GameProfile
 {
 public:
 	std::string ProfileName;

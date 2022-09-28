@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hooks.cpp" />
+    <ClCompile Include="Icarus_classes.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -52,6 +53,7 @@
   <ItemGroup>
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="Hooks.h" />
+    <ClInclude Include="Icarus_classes.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />
@@ -62,6 +64,7 @@
     <ClInclude Include="ImGui\imstb_truetype.h" />
     <ClInclude Include="LoaderUI.h" />
     <ClInclude Include="PakLoader.h" />
+    <ClInclude Include="SDK.hpp" />
     <ClInclude Include="UE4\CoreUObject_classes.hpp" />
     <ClInclude Include="UE4\Ue4.hpp" />
     <ClInclude Include="UMLDefs.h" />

@@ -5,9 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="UE4">
-      <UniqueIdentifier>{0f000464-de2e-48e5-a35e-7e7cb7596649}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Mod">
       <UniqueIdentifier>{5e9905c0-4bbb-46a4-8002-8adc3490cc17}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,5 @@
     <ClInclude Include="ExampleMod.h">
       <Filter>Mod</Filter>
     </ClInclude>
-    <ClInclude Include="..\DaedalusLoader\UE4\Ue4.hpp" />
   </ItemGroup>
 </Project>

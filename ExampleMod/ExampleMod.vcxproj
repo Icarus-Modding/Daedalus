@@ -95,7 +95,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)..\DaedalusLoader\DaedalusLoader;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\DaedalusLoader\DaedalusLoader;$(ProjectDir)..\DaedalusLoader;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -168,7 +168,6 @@
     <ClCompile Include="ExampleMod.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\DaedalusLoader\UE4\Ue4.hpp" />
     <ClInclude Include="ExampleMod.h" />
   </ItemGroup>
   <ItemGroup>

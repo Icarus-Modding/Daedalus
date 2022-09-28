@@ -1,4 +1,3 @@
-#include "ExampleMod.h"
 #include "Utilities/MinHook.h"
 #include "Ue4.hpp"
 
