@@ -77,23 +77,23 @@ void SetupProfile()
     std::string currentPath = std::filesystem::current_path().string();
     std::filesystem::path newPdbPath = std::filesystem::current_path() / "Icarus-Win64-Shipping.pdb";
     std::filesystem::path pdbPath = std::filesystem::current_path() / "Icarus" / "Binaries" / "Win64" / "Icarus-Win64-Shipping.pdb";
-    if (currentPath.find("Win32"))
+    if (currentPath.find("Win32") && !std::filesystem::exists(newPdbPath))
     {
-        if (!std::filesystem::exists(newPdbPath) || std::filesystem::file_size(newPdbPath) != std::filesystem::file_size(pdbPath))
-        {
-            // PDB is not in a readable location for this executable. Making a copy
-            std::error_code e;
-            Log::Info("Executable directory does not contain valid PDB. Attempting to copy...");
-            std::filesystem::copy_file(
-                pdbPath,
-                newPdbPath,
-                e
-            );
+        // PDB is not in a readable location for this executable. Making a copy
+        std::error_code e;
+        Log::Info("Executable directory does not contain valid PDB. Attempting to make symlink...");
+        std::filesystem::copy_options opts =
+            std::filesystem::copy_options::create_symlinks;
+        std::filesystem::copy_file(
+            pdbPath,
+            newPdbPath,
+            opts,
+            e
+        );
 
-            if (e)
-            {
-                Log::Warn("Failed to copy symbols to current directory. Mods may be unstable.");
-            }
+        if (e)
+        {
+            Log::Warn("Failed to copy symbols to current directory. Mods may be unstable.");
         }
     }
 
