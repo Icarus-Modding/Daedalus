@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Hooks.cpp" />
+    <ClCompile Include="Icarus_classes.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_demo.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="ImGui\imgui_tables.cpp" />
+    <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="LoaderUI.cpp" />
+    <ClCompile Include="PakLoader.cpp" />
+    <ClCompile Include="UE4\Basic.cpp" />
+    <ClCompile Include="UE4\CoreUObject_functions.cpp" />
+    <ClCompile Include="DaedalusLoader\dllmain.cpp" />
+    <ClCompile Include="DaedalusLoader\GameInfo\GameInfo.cpp" />
+    <ClCompile Include="DaedalusLoader\Memory\CoreModLoader.cpp" />
+    <ClCompile Include="DaedalusLoader\Memory\mem.cpp" />
+    <ClCompile Include="DaedalusLoader\Mod\Mod.cpp" />
+    <ClCompile Include="DaedalusLoader\Utilities\Dumper.cpp" />
+    <ClCompile Include="DaedalusLoader\Utilities\EngineDefFinder.cpp" />
+    <ClCompile Include="DaedalusLoader\Utilities\Globals.cpp" />
+    <ClCompile Include="DaedalusLoader\Utilities\Logger.cpp" />
+    <ClCompile Include="sdk\sdk.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EventSystem.h" />
+    <ClInclude Include="Hooks.h" />
+    <ClInclude Include="Icarus_classes.h" />
+    <ClInclude Include="ImGui\imconfig.h" />
+    <ClInclude Include="ImGui\imgui.h" />
+    <ClInclude Include="ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="ImGui\imstb_rectpack.h" />
+    <ClInclude Include="ImGui\imstb_textedit.h" />
+    <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="LoaderUI.h" />
+    <ClInclude Include="PakLoader.h" />
+    <ClInclude Include="UE4\CoreUObject_classes.hpp" />
+    <ClInclude Include="UE4\Ue4.hpp" />
+    <ClInclude Include="UMLDefs.h" />
+    <ClInclude Include="DaedalusLoader\GameInfo\GameInfo.h" />
+    <ClInclude Include="DaedalusLoader\Memory\CoreModLoader.h" />
+    <ClInclude Include="DaedalusLoader\Memory\mem.h" />
+    <ClInclude Include="DaedalusLoader\Mod\Mod.h" />
+    <ClInclude Include="DaedalusLoader\Utilities\Dumper.h" />
+    <ClInclude Include="DaedalusLoader\Utilities\EngineDefFinder.h" />
+    <ClInclude Include="DaedalusLoader\Utilities\Globals.h" />
+    <ClInclude Include="DaedalusLoader\Utilities\Logger.h" />
+    <ClInclude Include="DaedalusLoader\Utilities\MinHook.h" />
+    <ClInclude Include="DaedalusLoader\Utilities\Pattern.h" />
+    <ClInclude Include="DaedalusLoader\Utilities\Version.h" />
+    <ClInclude Include="SDK.hpp">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sdk\sdk.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\sdk-helper.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="sdk">
+      <UniqueIdentifier>{3c562265-7617-4446-b1df-ba3a72f8045c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

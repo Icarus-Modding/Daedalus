@@ -38,6 +38,7 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="LoaderUI.cpp" />
     <ClCompile Include="PakLoader.cpp" />
+    <ClCompile Include="sdk\sdk.cpp" />
     <ClCompile Include="UE4\Basic.cpp" />
     <ClCompile Include="UE4\CoreUObject_functions.cpp" />
     <ClCompile Include="DaedalusLoader\dllmain.cpp" />
@@ -51,6 +52,7 @@
     <ClCompile Include="DaedalusLoader\Utilities\Logger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\sdk\sdk.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="Icarus_classes.h" />
@@ -65,6 +67,7 @@
     <ClInclude Include="LoaderUI.h" />
     <ClInclude Include="PakLoader.h" />
     <ClInclude Include="SDK.hpp" />
+    <ClInclude Include="sdk\sdk-helper.h" />
     <ClInclude Include="UE4\CoreUObject_classes.hpp" />
     <ClInclude Include="UE4\Ue4.hpp" />
     <ClInclude Include="UMLDefs.h" />
@@ -153,7 +156,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\MinHook\;$(MSBuildProjectDirectory)\UE4\;$(MSBuildProjectDirectory)\DaedalusLoader\;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\MinHook\;$(MSBuildProjectDirectory)\UE4\;$(MSBuildProjectDirectory)\DaedalusLoader\;$(SolutionDir)..\sdk;$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)\MinHook\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -433,7 +433,7 @@ namespace UE4
 		static class AGameMode* GetGameMode();
 		static class UGameInstance* GetGameInstance();
 		static class APawn* GetPlayerPawn(int PlayerIndex);
-		static class APlayerController* GetPlayerController(int PlayerIndex);
+		static class APlayerController* GetGlobalPlayerCharacter(int PlayerIndex);
 
 		static void ExecuteConsoleCommand(const class FString& Command, class APlayerController* SpecificPlayer);
 

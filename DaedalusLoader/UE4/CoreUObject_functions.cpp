@@ -475,7 +475,7 @@ namespace UE4
 		return params.ReturnValue;
 	}
 
-	class APlayerController* UGameplayStatics::GetPlayerController(int PlayerIndex)
+	class APlayerController* UGameplayStatics::GetGlobalPlayerCharacter(int PlayerIndex)
 	{
 		static auto fn = UObject::FindObject<UFunction>("Function Engine.GameplayStatics.GetPlayerController");
 		auto GameplayStatics = (UE4::UGameplayStatics*)UE4::UGameplayStatics::StaticClass()->CreateDefaultObject();

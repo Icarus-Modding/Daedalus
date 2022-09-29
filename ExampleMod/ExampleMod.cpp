@@ -1,6 +1,7 @@
 #include "ExampleMod.h"
 #include "Utilities/MinHook.h"
 #include <SDK.hpp>
+#include <sdk.h>
 
 //#include "Source.hpp"
 
@@ -53,7 +54,7 @@ static T* FindObject(const std::string& name)
 	return nullptr;
 }
 
-static UE4::APlayerController* GetPlayerController() 
+static UE4::APlayerController* GetGlobalPlayerCharacter() 
 {
 	static auto fn = FindObject<UE4::UFunction>("Function Engine.GameplayStatics.GetPlayerController");
 	auto GameplayStatics = FindObject<UE4::UGameplayStatics>("Class Engine.GameplayStatics");
@@ -95,12 +96,6 @@ void LogOther(int32_t value)
 
 void ExampleMod::BeginPlay(UE4::AActor* Actor)
 {
-	if (Actor->GetClass()->GetFullName() == "BlueprintGeneratedClass BP_NetworkProxyComponentSurvival.BP_NetworkProxyComponentSurvival_C")
-	{
-		actor = Actor;
-
-		Log::Print(Actor->GetFullName());
-	}
 }
 
 void ExampleMod::PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor)
@@ -134,5 +129,11 @@ void ExampleMod::OnModMenuButtonPressed()
 
 void ExampleMod::DrawImGui()
 {
+	using namespace icarus;
+	AIcarusPlayerCharacter* player = AIcarusPlayerCharacter::GetPlayerController();
 
+	if (player)
+	{
+		Log::Info("Found player controller at %x", player);
+	}
 }
