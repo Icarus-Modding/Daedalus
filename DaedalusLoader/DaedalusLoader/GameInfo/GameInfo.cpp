@@ -73,10 +73,9 @@ void SetupProfile()
     Log::Info("UnrealModLoader Created by ~Russell.J Release V %s", MODLOADER_VERSION);
     Log::Info("Adapted by edmiester777 for use with Icarus");
     
-
     std::string currentPath = std::filesystem::current_path().string();
-    std::filesystem::path newPdbPath = std::filesystem::current_path() / "Icarus-Win64-Shipping.pdb";
-    std::filesystem::path pdbPath = std::filesystem::current_path() / "Icarus" / "Binaries" / "Win64" / "Icarus-Win64-Shipping.pdb";
+    std::filesystem::path newPdbPath = std::filesystem::current_path() / (gamename + ".pdb");
+    std::filesystem::path pdbPath = std::filesystem::current_path() / "Icarus" / "Binaries" / "Win64" / (gamename + ".pdb");
     if (currentPath.find("Win32") && !std::filesystem::exists(newPdbPath))
     {
         // PDB is not in a readable location for this executable. Making a copy
@@ -256,7 +255,7 @@ void SetupProfile()
         else
         {
             // falling back to searching by PDB
-            CallFunctionByNameWithArguments = (PBYTE)DetourFindFunction(GAME_EXECUTABLE_NAME, "UObject::CallFunctionByNameWithArguments");
+            CallFunctionByNameWithArguments = (PBYTE)DetourFindFunction((gamename+".exe").c_str(), "UObject::CallFunctionByNameWithArguments");
             if (CallFunctionByNameWithArguments != nullptr)
             {
                 // no need to convert address pointer due to PDB lookup giving us real address
