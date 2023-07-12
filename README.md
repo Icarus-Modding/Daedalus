@@ -2,6 +2,12 @@
 A modloader for [Icarus](https://store.steampowered.com/app/1149460/ICARUS/) for blueprint and
 C++ based mods. Still heavily under construction, see below for proper accredidation and info.
 
+# Usage
+For client: copy xinput1_3.dll and DaedalusLoader.dll to the `\Icarus\Binaries\Win64` folder. 
+For servers: copy version.dll and DaedalusLoader.dll to the `\Icarus\Binaries\Win64` folder.
+
+Mods should be placed in `\Icarus\Binaries\Win64\mods`
+
 # Credit
 This project was originally a fork of an old version of 
 [SatisfactoryModLoader](https://github.com/satisfactorymodding/SatisfactoryModLoader) but has since
